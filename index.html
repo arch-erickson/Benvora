@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Benvora New York</title>
+  <meta name="description" content="Benvora New York — contemporary clothing brand. Explore tees, hoodies, and essentials." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0c; --card:#121214; --muted:#b9bcc3; --text:#f4f6fb; --accent:#e6e6e6; --brand:#ffffff;
+      --max:1200px; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%;height:auto;border-radius:12px}
+    .container{max-width:var(--max);margin-inline:auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.7);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#fff,#bdbdbd)}
+    .menu{display:flex;gap:18px;align-items:center}
+    .menu a{font-weight:500;opacity:.9}
+    .cta{padding:10px 14px;border-radius:999px;background:#ffffff;color:#0b0b0c;font-weight:600;border:1px solid #fff}
+    .burger{display:none;background:none;border:0;color:var(--text);font-size:24px}
+
+    /* Hero */
+    .hero{position:relative;isolation:isolate}
+    .hero-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:72px 0}
+    .hero h1{font-size:clamp(32px,4.2vw,64px);line-height:1.05;margin:0 0 14px}
+    .hero p{margin:0 0 24px;color:var(--muted);max-width:52ch}
+    .chip{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid rgba(255,255,255,.15);border-radius:999px;color:var(--accent);margin-bottom:12px}
+    .chip b{color:#fff}
+    .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:#19191b;color:#fff;font-weight:600}
+    .btn.primary{background:#fff;color:#0b0b0c}
+    .btn:hover{transform:translateY(-1px)}
+    .hero-card{background:linear-gradient(180deg,#17171a,#101013);padding:16px;border-radius:var(--radius);box-shadow:var(--shadow);position:relative}
+    .hero-card img{border-radius:14px}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+
+    /* Sections */
+    section{padding:56px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}
+    .section-head h2{margin:0;font-size:clamp(22px,2.4vw,34px)}
+    .sub{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+    .card-body{padding:14px}
+    .title{font-weight:600}
+    .price{color:var(--accent);font-weight:700;margin-top:6px}
+    .pill{display:inline-block;margin-top:10px;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);color:var(--accent);font-weight:600}
+
+    /* About */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+    .about p{color:var(--muted)}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(255,255,255,.08);padding:28px 0;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width: 1000px){
+      .hero-wrap{grid-template-columns:1fr;gap:20px}
+      .grid{grid-template-columns:repeat(3,1fr)}
+      .about{grid-template-columns:1fr}
+    }
+    @media (max-width: 680px){
+      .menu{display:none}
+      .burger{display:block}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Benvora New York home">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Benvora New York</span>
+      </a>
+      <nav class="menu" aria-label="Primary">
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#shop">New Arrivals</a>
+      </nav>
+      <button class="burger" aria-label="Open menu" onclick="document.querySelector('.drawer').classList.toggle('open')">☰</button>
+    </div>
+    <div class="drawer" style="display:none"></div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <span class="chip">Est. <b>New York</b> • Since 2025</span>
+          <h1>Benvora New York</h1>
+          <p>Elevated essentials designed in NYC. Minimal lines, premium fabrics, and a silhouette‑first philosophy for everyday wear.</p>
+          <div class="actions">
+            <a href="#shop" class="btn primary">Shop Collection</a>
+            <a href="#about" class="btn">Our Story</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img alt="Editorial hero outfit" src="https://images.unsplash.com/photo-1548883354-94bcfe321c0e?q=80&w=1600&auto=format&fit=crop"/>
+          <div class="hero-grid">
+            <img alt="Stacked tees" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop"/>
+            <img alt="Hoodie detail" src="https://images.unsplash.com/photo-1516826957135-700dedea698c?q=80&w=1200&auto=format&fit=crop"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOP -->
+    <section id="shop">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>New Arrivals</h2>
+            <div class="sub">Tees, hoodies, and layered essentials.</div>
+          </div>
+          <a class="btn" href="#">View All</a>
+        </div>
+        <div class="grid">
+          <!-- Card 1 -->
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1520975922284-4fe8a1a17036?q=80&w=1400&auto=format&fit=crop" alt="Black classic tee"/>
+            <div class="card-body">
+              <div class="title">Classic Tee — Black</div>
+              <div class="price">$38</div>
+              <a class="pill" href="#">Add to Bag</a>
+            </div>
+          </article>
+          <!-- Card 2 -->
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1400&auto=format&fit=crop" alt="Stack of color tees"/>
+            <div class="card-body">
+              <div class="title">Everyday Tee — Assorted</div>
+              <div class="price">$34</div>
+              <a class="pill" href="#">Add to Bag</a>
+            </div>
+          </article>
+          <!-- Card 3 -->
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1520975594084-3fdfb796e0dc?q=80&w=1400&auto=format&fit=crop" alt="Grey hoodie"/>
+            <div class="card-body">
+              <div class="title">City Hoodie — Ash</div>
+              <div class="price">$78</div>
+              <a class="pill" href="#">Add to Bag</a>
+            </div>
+          </article>
+          <!-- Card 4 -->
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1475180098004-ca77a66827be?q=80&w=1400&auto=format&fit=crop" alt="Denim jacket"/>
+            <div class="card-body">
+              <div class="title">Studio Denim — Indigo</div>
+              <div class="price">$128</div>
+              <a class="pill" href="#">Add to Bag</a>
+            </div>
+          </article>
+          <!-- Card 5 -->
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1503342217505-b0a15cf70489?q=80&w=1400&auto=format&fit=crop" alt="White tee"/>
+            <div class="card-body">
+              <div class="title">Signature Tee — White</div>
+              <div class="price">$36</div>
+              <a class="pill" href="#">Add to Bag</a>
+            </div>
+          </article>
+          <!-- Card 6 -->
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1400&auto=format&fit=crop" alt="Olive overshirt"/>
+            <div class="card-body">
+              <div class="title">Field Overshirt — Olive</div>
+              <div class="price">$98</div>
+              <a class="pill" href="#">Add to Bag</a>
+            </div>
+          </article>
+          <!-- Card 7 -->
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1490480175190-5afadbfbbf02?q=80&w=1400&auto=format&fit=crop" alt="Crewneck sweatshirt"/>
+            <div class="card-body">
+              <div class="title">Core Crewneck — Charcoal</div>
+              <div class="price">$72</div>
+              <a class="pill" href="#">Add to Bag</a>
+            </div>
+          </article>
+          <!-- Card 8 -->
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1490481652192-52130cf87381?q=80&w=1400&auto=format&fit=crop" alt="Black hoodie"/>
+            <div class="card-body">
+              <div class="title">Midnight Hoodie — Black</div>
+              <div class="price">$82</div>
+              <a class="pill" href="#">Add to Bag</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container about">
+        <div>
+          <h2>About Benvora</h2>
+          <p>Benvora New York blends understated design with functional details. Our garments prioritize comfort, durability, and a tailored look that fits every day in the city. We partner with responsible mills and small-batch factories to ensure quality and traceability.</p>
+          <p>Designed in NYC. Crafted for everywhere.</p>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1519648023493-d82b5f8d7fd3?q=80&w=1400&auto=format&fit=crop" alt="Designer arranging garments" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-head"><h2>Contact</h2></div>
+        <form class="card" onsubmit="event.preventDefault(); alert('Thanks for reaching out to Benvora New York!');" aria-label="Contact form">
+          <div class="card-body" style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <label style="display:flex;flex-direction:column;font-weight:600">Name
+              <input required style="margin-top:6px;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:#0f0f11;color:#fff"/>
+            </label>
+            <label style="display:flex;flex-direction:column;font-weight:600">Email
+              <input type="email" required style="margin-top:6px;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:#0f0f11;color:#fff"/>
+            </label>
+            <label style="grid-column:1/-1;display:flex;flex-direction:column;font-weight:600">Message
+              <textarea rows="4" style="margin-top:6px;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:#0f0f11;color:#fff"></textarea>
+            </label>
+            <button class="btn primary" style="width:max-content">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="y"></span> Benvora New York. All rights reserved.</div>
+      <div>Instagram · TikTok · Terms · Privacy</div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // Simple mobile drawer for links
+    const header = document.querySelector('header');
+    const drawer = document.querySelector('.drawer');
+    drawer.style.position='absolute';drawer.style.top='64px';drawer.style.left='0';drawer.style.right='0';drawer.style.background='rgba(20,20,22,.98)';drawer.style.borderBottom='1px solid rgba(255,255,255,.08)';drawer.style.padding='12px 20px';
+    drawer.innerHTML = `
+      <nav style="display:flex;flex-direction:column;gap:10px">
+        <a href="#shop" onclick="drawer.classList.remove('open')">Shop</a>
+        <a href="#about" onclick="drawer.classList.remove('open')">About</a>
+        <a href="#contact" onclick="drawer.classList.remove('open')">Contact</a>
+      </nav>`;
+    const obs = new MutationObserver(()=>{
+      drawer.style.display = drawer.classList.contains('open') ? 'block' : 'none';
+    });
+    obs.observe(drawer,{attributes:true});
+  </script>
+</body>
+</html>
